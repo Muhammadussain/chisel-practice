@@ -1,0 +1,32 @@
+[
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~kyber|kyber>io_dmemReq_bits_dataRequest",
+    "sources":[
+      "~kyber|kyber>io_write_en",
+      "~kyber|kyber>io_write_data"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~kyber|kyber>io_dmemReq_bits_addrRequest",
+    "sources":[
+      "~kyber|kyber>io_addr"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~kyber|kyber>io_dmemReq_bits_isWrite",
+    "sources":[
+      "~kyber|kyber>io_write_en"
+    ]
+  },
+  {
+    "class":"firrtl.EmitCircuitAnnotation",
+    "emitter":"firrtl.VerilogEmitter"
+  },
+  {
+    "class":"firrtl.transforms.BlackBoxTargetDirAnno",
+    "targetDir":"test_run_dir/KyberTop_Test"
+  }
+]
