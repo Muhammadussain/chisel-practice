@@ -1,6 +1,0 @@
-/home/mhussain/BabyKyberAcceleratorCHISEL/test_run_dir/BabyKyberTop_Test/MatrixTranspose.sv
-/home/mhussain/BabyKyberAcceleratorCHISEL/test_run_dir/BabyKyberTop_Test/PolynomialMatrixMultiplication.sv
-/home/mhussain/BabyKyberAcceleratorCHISEL/test_run_dir/BabyKyberTop_Test/KeyGeneration.sv
-/home/mhussain/BabyKyberAcceleratorCHISEL/test_run_dir/BabyKyberTop_Test/Encrypt.sv
-/home/mhussain/BabyKyberAcceleratorCHISEL/test_run_dir/BabyKyberTop_Test/Decrypt.sv
-/home/mhussain/BabyKyberAcceleratorCHISEL/test_run_dir/BabyKyberTop_Test/Top.sv

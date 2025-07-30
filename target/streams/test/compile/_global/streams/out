@@ -1,7 +1,6 @@
-[0m[[0m[31merror[0m] [0m[0m/home/mhussain/BabyKyberAcceleratorCHISEL/src/test/scala/BabyKyber/BabyKyberTopTest.scala:13:76: not found: value NoTimeoutAnnotation[0m
-[0m[[0m[31merror[0m] [0m[0m    test(new BabyKyberTop).withAnnotations(Seq(VerilatorBackendAnnotation, NoTimeoutAnnotation)) { c =>[0m
-[0m[[0m[31merror[0m] [0m[0m                                                                           ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/mhussain/BabyKyberAcceleratorCHISEL/src/test/scala/BabyKyber/BabyKyberTopTest.scala:87:44: value toHexString is not a member of Any[0m
-[0m[[0m[31merror[0m] [0m[0m        println(s"Public Key Addr 0x${addr.toHexString} = ${c.io.rsp.bits.dataResponse.peek().litValue}")[0m
-[0m[[0m[31merror[0m] [0m[0m                                           ^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/mhussain/chisel-practice/src/test/scala/BabyKyber/BabyKyberTopTest.scala:44:74: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : BigInt[0m
+[0m[[0m[31merror[0m] [0m[0m required: Long[0m
+[0m[[0m[31merror[0m] [0m[0m    val value: Long = if (readSuccess) c.io.rsp.bits.dataResponse.peek().litValue else 0L[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
