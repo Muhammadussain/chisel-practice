@@ -19,6 +19,7 @@ class BabyKyberTopTests extends FlatSpec with ChiselScalatestTester with Matcher
     c.io.req.bits.addrRequest.poke(addr.U)
     c.io.req.bits.dataRequest.poke(data.U)
     c.clock.step(1)
+    c.io.req.valid.poke(false.B)
     
     // Check if write was successful
     val writeSuccess = c.io.rsp.valid.peek().litToBoolean
@@ -39,6 +40,7 @@ class BabyKyberTopTests extends FlatSpec with ChiselScalatestTester with Matcher
     c.io.req.bits.isWrite.poke(false.B)
     c.io.req.bits.addrRequest.poke(addr.U)
     c.clock.step(1)
+    c.io.req.valid.poke(false.B)
     
     val readSuccess = c.io.rsp.valid.peek().litToBoolean
     val value: Long = if (readSuccess) c.io.rsp.bits.dataResponse.peek().litValue.toLong else 0L
@@ -56,7 +58,7 @@ class BabyKyberTopTests extends FlatSpec with ChiselScalatestTester with Matcher
     while (!doneSignal() && cycles < timeout) {
       c.clock.step(1)
       cycles += 1
-      if (cycles % 100 == 0) {
+      if (cycles % 50 == 0) {
         println(s"        Still waiting... ($cycles cycles)")
       }
     }
@@ -89,7 +91,7 @@ class BabyKyberTopTests extends FlatSpec with ChiselScalatestTester with Matcher
       c.io.req.bits.dataRequest.poke(0.U)
       c.io.req.bits.addrRequest.poke(0.U)
       c.io.req.bits.activeByteLane.poke(0.U)
-      c.clock.step(4)
+      c.clock.step(1)
 
       // Enable the accelerator
       println("[INIT]  Enabling BabyKyber accelerator...")
@@ -152,6 +154,7 @@ class BabyKyberTopTests extends FlatSpec with ChiselScalatestTester with Matcher
       println("[KEYGEN] Enabling key generation...")
       c.io.key_enable.poke(true.B)
       c.clock.step(1)
+      c.io.key_enable.poke(false.B)
       
       val keyGenSuccess = waitForDone(c, () => c.io.key_done.peek().litToBoolean, "Key Generation")
       
@@ -229,6 +232,7 @@ class BabyKyberTopTests extends FlatSpec with ChiselScalatestTester with Matcher
       println("[ENCRYPT] Enabling encryption...")
       c.io.encryption_enable.poke(true.B)
       c.clock.step(1)
+      c.io.encryption_enable.poke(false.B)
       
       val encryptSuccess = waitForDone(c, () => c.io.encryption_done.peek().litToBoolean, "Encryption")
       
@@ -268,6 +272,7 @@ class BabyKyberTopTests extends FlatSpec with ChiselScalatestTester with Matcher
       println("[DECRYPT] Enabling decryption...")
       c.io.decryption_enable.poke(true.B)
       c.clock.step(1)
+      c.io.decryption_enable.poke(false.B)
       
       val decryptSuccess = waitForDone(c, () => c.io.decryption_done.peek().litToBoolean, "Decryption")
       
@@ -280,10 +285,6 @@ class BabyKyberTopTests extends FlatSpec with ChiselScalatestTester with Matcher
         println("="*80)
       }
 
-      // Additional clock cycles for cleanup
-      println("[FINISH] Running additional clock cycles for cleanup...")
-      c.clock.step(100)
-      
       println("="*80)
       println("           BABY KYBER BLACKBOX TEST COMPLETED")
       println("="*80)
