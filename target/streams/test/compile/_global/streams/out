@@ -1,6 +1,22 @@
-[0m[[0m[31merror[0m] [0m[0m/home/mhussain/chisel-practice/src/test/scala/BabyKyber/BabyKyberTopTest.scala:44:74: type mismatch;[0m
-[0m[[0m[31merror[0m] [0m[0m found   : BigInt[0m
-[0m[[0m[31merror[0m] [0m[0m required: Long[0m
-[0m[[0m[31merror[0m] [0m[0m    val value: Long = if (readSuccess) c.io.rsp.bits.dataResponse.peek().litValue else 0L[0m
-[0m[[0m[31merror[0m] [0m[0m                                                                         ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/mhussain/chisel-practice/src/test/scala/BabyKyber/BabyKyberHarnessTest.scala:6:22: object flatspec is not a member of package org.scalatest[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.scalatest.flatspec.AnyFlatSpec[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/mhussain/chisel-practice/src/test/scala/BabyKyber/BabyKyberHarnessTest.scala:10:36: not found: type AnyFlatSpec[0m
+[0m[[0m[31merror[0m] [0m[0mclass BabyKyberHarnessTest extends AnyFlatSpec with ChiselScalatestTester {[0m
+[0m[[0m[31merror[0m] [0m[0m                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/mhussain/chisel-practice/src/test/scala/BabyKyber/BabyKyberHarnessTest.scala:11:3: not found: value behavior[0m
+[0m[[0m[31merror[0m] [0m[0m  behavior of "BabyKyberHarness"[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/mhussain/chisel-practice/src/test/scala/BabyKyber/BabyKyberHarnessTest.scala:20:19: value writeEnable is not a member of caravan.bus.wishbone.WBRequest[0m
+[0m[[0m[31merror[0m] [0m[0m    c.io.req.bits.writeEnable.poke(true.B)[0m
+[0m[[0m[31merror[0m] [0m[0m                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/mhussain/chisel-practice/src/test/scala/BabyKyber/BabyKyberHarnessTest.scala:43:19: value writeEnable is not a member of caravan.bus.wishbone.WBRequest[0m
+[0m[[0m[31merror[0m] [0m[0m    c.io.req.bits.writeEnable.poke(false.B)[0m
+[0m[[0m[31merror[0m] [0m[0m                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/mhussain/chisel-practice/src/test/scala/BabyKyber/BabyKyberHarnessTest.scala:75:3: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m  it should "perform key generation, encryption, and decryption with detailed logging through Wishbone" in {[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/mhussain/chisel-practice/src/test/scala/BabyKyber/BabyKyberHarnessTest.scala:94:21: value writeEnable is not a member of caravan.bus.wishbone.WBRequest[0m
+[0m[[0m[31merror[0m] [0m[0m      c.io.req.bits.writeEnable.poke(false.B)[0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m7 errors found[0m

@@ -1,0 +1,49 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(reload, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(sbtStashOnFailure, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(onFailure loadFailed, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(loadp, None, None)[0m
+[0m[[0m[0minfo[0m] [0m[0mwelcome to sbt 1.10.1 (Ubuntu Java 11.0.27)[0m
+[0m[[0m[0mdebug[0m] [0m[0m                                    Load.defaultLoad until apply took 2.615344ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m                                              Load.loadUnit: plugins took 26.923969ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m                                              Load.loadUnit: defsScala took 0.008453ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m[Loading] Scanning directory /home/mhussain/chisel-practice/project[0m
+[0m[[0m[0mdebug[0m] [0m[0m                                                Load.loadUnit: mkEval took 0.391082ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m[Loading] Found non-root projects [0m
+[0m[[0m[0mdebug[0m] [0m[0m[Loading] Done in /home/mhussain/chisel-practice/project, returning: ()[0m
+[0m[[0m[0mdebug[0m] [0m[0mdeducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))[0m
+[0m[[0m[0mdebug[0m] [0m[0m  :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)[0m
+[0m[[0m[0mdebug[0m] [0m[0mPlugins.deducer#function took 1.642129 ms[0m
+[0m[[0m[0minfo[0m] [0m[0mloading settings for project chisel-practice-build from plugins.sbt ...[0m
+[0m[[0m[0mdebug[0m] [0m[0m                                                  Load.resolveProject(chisel-practice-build) took 2.080437ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m                                                Load.loadTransitive: finalizeProject(Project(id chisel-practice-build, base: /home/mhussain/chisel-practice/project, plugins: List(<none>))) took 4.292886ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m[Loading] Done in /home/mhussain/chisel-practice/project, returning: (chisel-practice-build)[0m
+[0m[[0m[0mdebug[0m] [0m[0m                                              Load.loadUnit: loadedProjectsRaw took 21.504988ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m                                              Load.loadUnit: cleanEvalClasses took 0.693996ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m                                            Load.loadUnit(file:/home/mhussain/chisel-practice/project/, ...) took 49.792127ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m                                          Load.apply: load took 51.158774ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m                                          Load.apply: resolveProjects took 0.174447ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m                                          Load.apply: finalTransforms took 11.39911ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m                                          Load.apply: config.delegates took 0.741126ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m                                          Load.apply: Def.make(settings)... took 94.188571ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m                                          Load.apply: structureIndex took 24.589855ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m                                          Load.apply: mkStreams took 0.004902ms[0m
+[0m[[0m[0minfo[0m] [0m[0mloading project definition from /home/mhussain/chisel-practice/project[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0mdebug[0m] [0m[0m                                        Load.loadUnit: plugins took 370.096263ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m                                        Load.loadUnit: defsScala took 0.008627ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m[Loading] Scanning directory /home/mhussain/chisel-practice[0m
+[0m[[0m[0mdebug[0m] [0m[0m                                          Load.loadUnit: mkEval took 0.467695ms[0m
+[0m[[0m[31merror[0m] [0m[0m[/home/mhussain/chisel-practice/build.sbt]:52: ')' expected but eof found.[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(loadFailed, None, None)[0m
+[0m[[0m[33mwarn[0m] [0m[0mProject loading failed: (r)etry, (q)uit, (l)ast, or (i)gnore? (default: r)[0m
