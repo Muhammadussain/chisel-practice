@@ -1,4 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/mhussain/chisel-practice/src/test/scala/BabyKyber/BabyKyberHarnessTest_fixed.scala:10:7: BabyKyberHarnessTest is already defined as class BabyKyberHarnessTest[0m
-[0m[[0m[31merror[0m] [0m[0mclass BabyKyberHarnessTest extends FlatSpec with ChiselScalatestTester {[0m
-[0m[[0m[31merror[0m] [0m[0m      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/mhussain/chisel-practice/src/test/scala/BabyKyber/BabyKyberHarnessTest.scala:75:42: not found: value writeSuccess[0m
+[0m[[0m[31merror[0m] [0m[0m    println(s"        Read Status: ${if (writeSuccess) "SUCCESS" else "FAILED"} after $cycles cycles")[0m
+[0m[[0m[31merror[0m] [0m[0m                                         ^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m
