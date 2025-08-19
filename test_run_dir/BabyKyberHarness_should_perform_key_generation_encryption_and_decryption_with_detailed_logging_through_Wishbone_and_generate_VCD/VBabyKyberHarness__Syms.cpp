@@ -1,7 +1,7 @@
 // Verilated -*- C++ -*-
 // DESCRIPTION: Verilator output: Symbol table implementation internals
 
-#include "VBabyKyberHarness__Syms.h"
+#include "VBabyKyberHarness__pch.h"
 #include "VBabyKyberHarness.h"
 #include "VBabyKyberHarness___024root.h"
 

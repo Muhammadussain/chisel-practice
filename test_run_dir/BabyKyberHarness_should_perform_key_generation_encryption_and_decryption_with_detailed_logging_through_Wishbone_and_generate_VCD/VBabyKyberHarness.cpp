@@ -1,8 +1,7 @@
 // Verilated -*- C++ -*-
 // DESCRIPTION: Verilator output: Model implementation (design independent parts)
 
-#include "VBabyKyberHarness.h"
-#include "VBabyKyberHarness__Syms.h"
+#include "VBabyKyberHarness__pch.h"
 #include "verilated_vcd_c.h"
 
 //============================================================
@@ -49,43 +48,15 @@ VBabyKyberHarness::~VBabyKyberHarness() {
 }
 
 //============================================================
-// Evaluation loop
+// Evaluation function
 
-void VBabyKyberHarness___024root___eval_initial(VBabyKyberHarness___024root* vlSelf);
-void VBabyKyberHarness___024root___eval_settle(VBabyKyberHarness___024root* vlSelf);
-void VBabyKyberHarness___024root___eval(VBabyKyberHarness___024root* vlSelf);
-QData VBabyKyberHarness___024root___change_request(VBabyKyberHarness___024root* vlSelf);
 #ifdef VL_DEBUG
 void VBabyKyberHarness___024root___eval_debug_assertions(VBabyKyberHarness___024root* vlSelf);
 #endif  // VL_DEBUG
-void VBabyKyberHarness___024root___final(VBabyKyberHarness___024root* vlSelf);
-
-static void _eval_initial_loop(VBabyKyberHarness__Syms* __restrict vlSymsp) {
-    vlSymsp->__Vm_didInit = true;
-    VBabyKyberHarness___024root___eval_initial(&(vlSymsp->TOP));
-    // Evaluate till stable
-    int __VclockLoop = 0;
-    QData __Vchange = 1;
-    vlSymsp->__Vm_activity = true;
-    do {
-        VL_DEBUG_IF(VL_DBG_MSGF("+ Initial loop\n"););
-        VBabyKyberHarness___024root___eval_settle(&(vlSymsp->TOP));
-        VBabyKyberHarness___024root___eval(&(vlSymsp->TOP));
-        if (VL_UNLIKELY(++__VclockLoop > 100)) {
-            // About to fail, so enable debug to see what's not settling.
-            // Note you must run make with OPT=-DVL_DEBUG for debug prints.
-            int __Vsaved_debug = Verilated::debug();
-            Verilated::debug(1);
-            __Vchange = VBabyKyberHarness___024root___change_request(&(vlSymsp->TOP));
-            Verilated::debug(__Vsaved_debug);
-            VL_FATAL_MT("BabyKyberHarness.v", 358, "",
-                "Verilated model didn't DC converge\n"
-                "- See https://verilator.org/warn/DIDNOTCONVERGE");
-        } else {
-            __Vchange = VBabyKyberHarness___024root___change_request(&(vlSymsp->TOP));
-        }
-    } while (VL_UNLIKELY(__Vchange));
-}
+void VBabyKyberHarness___024root___eval_static(VBabyKyberHarness___024root* vlSelf);
+void VBabyKyberHarness___024root___eval_initial(VBabyKyberHarness___024root* vlSelf);
+void VBabyKyberHarness___024root___eval_settle(VBabyKyberHarness___024root* vlSelf);
+void VBabyKyberHarness___024root___eval(VBabyKyberHarness___024root* vlSelf);
 
 void VBabyKyberHarness::eval_step() {
     VL_DEBUG_IF(VL_DBG_MSGF("+++++TOP Evaluate VBabyKyberHarness::eval_step\n"); );
@@ -93,30 +64,28 @@ void VBabyKyberHarness::eval_step() {
     // Debug assertions
     VBabyKyberHarness___024root___eval_debug_assertions(&(vlSymsp->TOP));
 #endif  // VL_DEBUG
-    // Initialize
-    if (VL_UNLIKELY(!vlSymsp->__Vm_didInit)) _eval_initial_loop(vlSymsp);
-    // Evaluate till stable
-    int __VclockLoop = 0;
-    QData __Vchange = 1;
     vlSymsp->__Vm_activity = true;
-    do {
-        VL_DEBUG_IF(VL_DBG_MSGF("+ Clock loop\n"););
-        VBabyKyberHarness___024root___eval(&(vlSymsp->TOP));
-        if (VL_UNLIKELY(++__VclockLoop > 100)) {
-            // About to fail, so enable debug to see what's not settling.
-            // Note you must run make with OPT=-DVL_DEBUG for debug prints.
-            int __Vsaved_debug = Verilated::debug();
-            Verilated::debug(1);
-            __Vchange = VBabyKyberHarness___024root___change_request(&(vlSymsp->TOP));
-            Verilated::debug(__Vsaved_debug);
-            VL_FATAL_MT("BabyKyberHarness.v", 358, "",
-                "Verilated model didn't converge\n"
-                "- See https://verilator.org/warn/DIDNOTCONVERGE");
-        } else {
-            __Vchange = VBabyKyberHarness___024root___change_request(&(vlSymsp->TOP));
-        }
-    } while (VL_UNLIKELY(__Vchange));
+    vlSymsp->__Vm_deleter.deleteAll();
+    if (VL_UNLIKELY(!vlSymsp->__Vm_didInit)) {
+        vlSymsp->__Vm_didInit = true;
+        VL_DEBUG_IF(VL_DBG_MSGF("+ Initial\n"););
+        VBabyKyberHarness___024root___eval_static(&(vlSymsp->TOP));
+        VBabyKyberHarness___024root___eval_initial(&(vlSymsp->TOP));
+        VBabyKyberHarness___024root___eval_settle(&(vlSymsp->TOP));
+    }
+    VL_DEBUG_IF(VL_DBG_MSGF("+ Eval\n"););
+    VBabyKyberHarness___024root___eval(&(vlSymsp->TOP));
     // Evaluate cleanup
+    Verilated::endOfEval(vlSymsp->__Vm_evalMsgQp);
+}
+
+//============================================================
+// Events and timing
+bool VBabyKyberHarness::eventsPending() { return false; }
+
+uint64_t VBabyKyberHarness::nextTimeSlot() {
+    VL_FATAL_MT(__FILE__, __LINE__, "", "%Error: No delays in the design");
+    return 0;
 }
 
 //============================================================
@@ -129,8 +98,10 @@ const char* VBabyKyberHarness::name() const {
 //============================================================
 // Invoke final blocks
 
+void VBabyKyberHarness___024root___eval_final(VBabyKyberHarness___024root* vlSelf);
+
 VL_ATTR_COLD void VBabyKyberHarness::final() {
-    VBabyKyberHarness___024root___final(&(vlSymsp->TOP));
+    VBabyKyberHarness___024root___eval_final(&(vlSymsp->TOP));
 }
 
 //============================================================
@@ -139,12 +110,18 @@ VL_ATTR_COLD void VBabyKyberHarness::final() {
 const char* VBabyKyberHarness::hierName() const { return vlSymsp->name(); }
 const char* VBabyKyberHarness::modelName() const { return "VBabyKyberHarness"; }
 unsigned VBabyKyberHarness::threads() const { return 1; }
+void VBabyKyberHarness::prepareClone() const { contextp()->prepareClone(); }
+void VBabyKyberHarness::atClone() const {
+    contextp()->threadPoolpOnClone();
+}
 std::unique_ptr<VerilatedTraceConfig> VBabyKyberHarness::traceConfig() const {
     return std::unique_ptr<VerilatedTraceConfig>{new VerilatedTraceConfig{false, false, false}};
 };
 
 //============================================================
 // Trace configuration
+
+void VBabyKyberHarness___024root__trace_decl_types(VerilatedVcd* tracep);
 
 void VBabyKyberHarness___024root__trace_init_top(VBabyKyberHarness___024root* vlSelf, VerilatedVcd* tracep);
 
@@ -157,11 +134,10 @@ VL_ATTR_COLD static void trace_init(void* voidSelf, VerilatedVcd* tracep, uint32
             "Turning on wave traces requires Verilated::traceEverOn(true) call before time 0.");
     }
     vlSymsp->__Vm_baseCode = code;
-    tracep->scopeEscape(' ');
-    tracep->pushNamePrefix(std::string{vlSymsp->name()} + ' ');
+    tracep->pushPrefix(std::string{vlSymsp->name()}, VerilatedTracePrefixType::SCOPE_MODULE);
+    VBabyKyberHarness___024root__trace_decl_types(tracep);
     VBabyKyberHarness___024root__trace_init_top(vlSelf, tracep);
-    tracep->popNamePrefix();
-    tracep->scopeEscape('.');
+    tracep->popPrefix();
 }
 
 VL_ATTR_COLD void VBabyKyberHarness___024root__trace_register(VBabyKyberHarness___024root* vlSelf, VerilatedVcd* tracep);

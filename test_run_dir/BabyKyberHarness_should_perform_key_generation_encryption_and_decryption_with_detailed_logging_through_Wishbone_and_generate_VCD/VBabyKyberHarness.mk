@@ -10,7 +10,7 @@ default: VBabyKyberHarness
 # Perl executable (from $PERL)
 PERL = perl
 # Path to Verilator kit (from $VERILATOR_ROOT)
-VERILATOR_ROOT = /usr/local/share/verilator
+VERILATOR_ROOT = /usr/share/verilator
 # SystemC include directory with systemc.h (from $SYSTEMC_INCLUDE)
 SYSTEMC_INCLUDE ?= 
 # SystemC library directory with libsystemc.a (from $SYSTEMC_LIBDIR)
@@ -46,7 +46,7 @@ VM_USER_CLASSES = \
 
 # User .cpp directories (from .cpp's on Verilator command line)
 VM_USER_DIR = \
-	/home/mhussain/chisel-practice/test_run_dir/BabyKyberHarness_should_perform_key_generation_encryption_and_decryption_with_detailed_logging_through_Wishbone_and_generate_VCD \
+	/home/hussain/chisel-practice/test_run_dir/BabyKyberHarness_should_perform_key_generation_encryption_and_decryption_with_detailed_logging_through_Wishbone_and_generate_VCD \
 
 
 ### Default rules...
@@ -58,7 +58,7 @@ include $(VERILATOR_ROOT)/include/verilated.mk
 ### Executable rules... (from --exe)
 VPATH += $(VM_USER_DIR)
 
-BabyKyberHarness-harness.o: /home/mhussain/chisel-practice/test_run_dir/BabyKyberHarness_should_perform_key_generation_encryption_and_decryption_with_detailed_logging_through_Wishbone_and_generate_VCD/BabyKyberHarness-harness.cpp
+BabyKyberHarness-harness.o: /home/hussain/chisel-practice/test_run_dir/BabyKyberHarness_should_perform_key_generation_encryption_and_decryption_with_detailed_logging_through_Wishbone_and_generate_VCD/BabyKyberHarness-harness.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 
 ### Link rules... (from --exe)
